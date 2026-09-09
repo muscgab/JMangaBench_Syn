@@ -1,0 +1,8 @@
+{
+  "diagnostic": "fixed identical 8-image B1/B8 comparison",
+  "before_b1_b8_mismatch_count": 8,
+  "after_b1_b8_mismatch_count": 0,
+  "modeling_sha256_before": "351269f534882b2df200192adc3af6117910e9a7446caf0d6706366b1ed45d9f",
+  "modeling_sha256_after": "5e9205d762a10cdddb450b5d01538440a6c5e8026671566b69b9f76164db093d",
+  "weights_modified": false
+}

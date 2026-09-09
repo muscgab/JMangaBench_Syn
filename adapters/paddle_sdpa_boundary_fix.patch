@@ -1,0 +1,17 @@
+--- a/modeling_paddleocr_vl.py
++++ b/modeling_paddleocr_vl.py
+@@ -1287,6 +1287,14 @@
+                 batch_size, seq_length, self.num_heads, self.head_dim
+             ).transpose(1, 2)
+ 
++        if not use_flash_attn and cu_seqlens is not None and attention_mask is None:
++            # SDPA has no varlen interface. Keep each image/window isolated, matching flash_attn_varlen.
++            positions = torch.arange(seq_length, device=hidden_states.device)
++            segment = torch.bucketize(positions, cu_seqlens[1:].to(positions.device), right=True)
++            allowed = segment[:, None].eq(segment[None, :])
++            attention_mask = torch.zeros((batch_size, 1, seq_length, seq_length), dtype=queries.dtype, device=queries.device)
++            attention_mask.masked_fill_(~allowed.unsqueeze(0).unsqueeze(0), torch.finfo(queries.dtype).min)
++
+         if not use_flash_attn:
+             attention_interface: Callable = eager_attention_forward
+             if self.config._attn_implementation != "eager":

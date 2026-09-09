@@ -1,0 +1,8 @@
+{
+  "policy": "v2.2_translation_semantic_lines_eval_20260910",
+  "sha256": {
+    "semantic_visual_v2_eval.py": "558f6d6e7f32aabc8237726eaf74740f86ce3756ad7ddb3158be90807bf003f8",
+    "semantic_visual_v2_translation_eval.py": "6da64e517e10d29dc976314839775f74433c9d026fb6195068fd2015d8cb3bf8",
+    "normalization_presets_semantic_visual_v2.yaml": "e6aa5038b0222772a980815b7d4842e59186bf927e757f088815d593693d1802"
+  }
+}

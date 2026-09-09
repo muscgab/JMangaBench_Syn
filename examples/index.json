@@ -1,0 +1,56 @@
+[
+  {
+    "id": "r33-real_possible_independent-0227ac4fef26eb52efa285f09f38190d45361cd842b880bf842c5c877bb528c7",
+    "subset": "real",
+    "file": "examples/real_1.png",
+    "sha256": "0227ac4fef26eb52efa285f09f38190d45361cd842b880bf842c5c877bb528c7"
+  },
+  {
+    "id": "r33-real_possible_independent-006b5fb0fb0a38198581c730fc25f8a39cfda289c4be550e3d270362c08b8eed",
+    "subset": "real",
+    "file": "examples/real_2.png",
+    "sha256": "006b5fb0fb0a38198581c730fc25f8a39cfda289c4be550e3d270362c08b8eed"
+  },
+  {
+    "id": "r33-real_possible_independent-06bf09e44e525909508dd55b3910a095f75aab8a32a3f0fbfeb918963fb14249",
+    "subset": "real",
+    "file": "examples/real_3.png",
+    "sha256": "06bf09e44e525909508dd55b3910a095f75aab8a32a3f0fbfeb918963fb14249"
+  },
+  {
+    "id": "r33-realscan_possible_independent-035662a4f8e146a6bc4a3f8f7346aae547761fa8a04038a255de4da4d2ae35b5",
+    "subset": "realscan",
+    "file": "examples/realscan_1.png",
+    "sha256": "035662a4f8e146a6bc4a3f8f7346aae547761fa8a04038a255de4da4d2ae35b5"
+  },
+  {
+    "id": "r33-realscan_possible_independent-01d06e1d65a1897775ee3161630ec439ae48262b4aef18a7e2b5bdde1236d7f3",
+    "subset": "realscan",
+    "file": "examples/realscan_2.png",
+    "sha256": "01d06e1d65a1897775ee3161630ec439ae48262b4aef18a7e2b5bdde1236d7f3"
+  },
+  {
+    "id": "r33-realscan_possible_independent-035929964fa9350d52493d3ed762fc60690bcea92f79584505d74373bacaf008",
+    "subset": "realscan",
+    "file": "examples/realscan_3.png",
+    "sha256": "035929964fa9350d52493d3ed762fc60690bcea92f79584505d74373bacaf008"
+  },
+  {
+    "id": "r33-enhanced-possible-01a1d096470b4702d37e0ff1c8792db96c66911ca667ca987a1fabdb83a4ab9f",
+    "subset": "enhanced",
+    "file": "examples/enhanced_1.png",
+    "sha256": "01a1d096470b4702d37e0ff1c8792db96c66911ca667ca987a1fabdb83a4ab9f"
+  },
+  {
+    "id": "r33-enhanced-possible-026e82b9fb319d1c4ee081050718ab474bfbee99d8691c46afde026404c78250",
+    "subset": "enhanced",
+    "file": "examples/enhanced_2.png",
+    "sha256": "026e82b9fb319d1c4ee081050718ab474bfbee99d8691c46afde026404c78250"
+  },
+  {
+    "id": "r33-enhanced-unlikely-d0e06ef26abe5f9fdaafc6722d727a1d2e5729cff6b250bbd7e86ee9335b0f08",
+    "subset": "enhanced",
+    "file": "examples/enhanced_3.png",
+    "sha256": "d0e06ef26abe5f9fdaafc6722d727a1d2e5729cff6b250bbd7e86ee9335b0f08"
+  }
+]

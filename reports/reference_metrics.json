@@ -1,0 +1,485 @@
+{
+  "normalization": "v2.2_translation_semantic_lines_eval_20260910",
+  "models": {
+    "mangaocr": {
+      "counts": {
+        "manifest_records": 5000,
+        "prediction_records": 5000,
+        "missing_predictions": 0,
+        "prediction_error_records": 0,
+        "body_excluded_empty_reference": 122,
+        "normalization_fallback_raw_records": 0,
+        "empty_reference_by_subset": {
+          "real": 0,
+          "realscan": 0,
+          "enhanced": 0,
+          "all": 0
+        }
+      },
+      "metrics": {
+        "v2_2": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1792,
+            "edit_distance": 366,
+            "reference_characters": 23195,
+            "em": 0.896,
+            "cer": 0.01577926277214917
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1776,
+            "edit_distance": 441,
+            "reference_characters": 22958,
+            "em": 0.888,
+            "cer": 0.019208990330168135
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 728,
+            "edit_distance": 509,
+            "reference_characters": 11432,
+            "em": 0.728,
+            "cer": 0.04452414275717285
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 4296,
+            "edit_distance": 1316,
+            "reference_characters": 57585,
+            "em": 0.8592,
+            "cer": 0.022853173569505947
+          }
+        },
+        "raw": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1584,
+            "edit_distance": 860,
+            "reference_characters": 24062,
+            "em": 0.792,
+            "cer": 0.0357410024104397
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1548,
+            "edit_distance": 1009,
+            "reference_characters": 23860,
+            "em": 0.774,
+            "cer": 0.0422883487007544
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 618,
+            "edit_distance": 844,
+            "reference_characters": 11870,
+            "em": 0.618,
+            "cer": 0.07110362257792754
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 3750,
+            "edit_distance": 2713,
+            "reference_characters": 59792,
+            "em": 0.75,
+            "cer": 0.045373963071982874
+          }
+        },
+        "body": {
+          "real": {
+            "samples": 1957,
+            "exact_matches": 1862,
+            "edit_distance": 172,
+            "reference_characters": 21632,
+            "em": 0.9514563106796117,
+            "cer": 0.007951183431952663
+          },
+          "realscan": {
+            "samples": 1947,
+            "exact_matches": 1823,
+            "edit_distance": 254,
+            "reference_characters": 21415,
+            "em": 0.9363122752953261,
+            "cer": 0.011860845201961243
+          },
+          "enhanced": {
+            "samples": 974,
+            "exact_matches": 836,
+            "edit_distance": 238,
+            "reference_characters": 10605,
+            "em": 0.8583162217659137,
+            "cer": 0.022442244224422443
+          },
+          "all": {
+            "samples": 4878,
+            "exact_matches": 4521,
+            "edit_distance": 664,
+            "reference_characters": 53652,
+            "em": 0.9268142681426814,
+            "cer": 0.01237605308283009
+          }
+        }
+      }
+    },
+    "baberu": {
+      "counts": {
+        "manifest_records": 5000,
+        "prediction_records": 5000,
+        "missing_predictions": 0,
+        "prediction_error_records": 0,
+        "body_excluded_empty_reference": 122,
+        "normalization_fallback_raw_records": 0,
+        "empty_reference_by_subset": {
+          "real": 0,
+          "realscan": 0,
+          "enhanced": 0,
+          "all": 0
+        }
+      },
+      "metrics": {
+        "v2_2": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1756,
+            "edit_distance": 397,
+            "reference_characters": 23195,
+            "em": 0.878,
+            "cer": 0.01711575770640224
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1723,
+            "edit_distance": 462,
+            "reference_characters": 22958,
+            "em": 0.8615,
+            "cer": 0.020123704155414236
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 727,
+            "edit_distance": 502,
+            "reference_characters": 11432,
+            "em": 0.727,
+            "cer": 0.04391182645206438
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 4206,
+            "edit_distance": 1361,
+            "reference_characters": 57585,
+            "em": 0.8412,
+            "cer": 0.02363462707302249
+          }
+        },
+        "raw": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1531,
+            "edit_distance": 963,
+            "reference_characters": 24062,
+            "em": 0.7655,
+            "cer": 0.040021610838666774
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1470,
+            "edit_distance": 1128,
+            "reference_characters": 23860,
+            "em": 0.735,
+            "cer": 0.04727577535624476
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 610,
+            "edit_distance": 873,
+            "reference_characters": 11870,
+            "em": 0.61,
+            "cer": 0.07354675652906487
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 3611,
+            "edit_distance": 2964,
+            "reference_characters": 59792,
+            "em": 0.7222,
+            "cer": 0.049571849076799575
+          }
+        },
+        "body": {
+          "real": {
+            "samples": 1957,
+            "exact_matches": 1780,
+            "edit_distance": 263,
+            "reference_characters": 21632,
+            "em": 0.9095554420030659,
+            "cer": 0.012157914201183432
+          },
+          "realscan": {
+            "samples": 1947,
+            "exact_matches": 1750,
+            "edit_distance": 308,
+            "reference_characters": 21415,
+            "em": 0.8988186954288649,
+            "cer": 0.014382442213401821
+          },
+          "enhanced": {
+            "samples": 974,
+            "exact_matches": 811,
+            "edit_distance": 247,
+            "reference_characters": 10605,
+            "em": 0.8326488706365504,
+            "cer": 0.02329090051862329
+          },
+          "all": {
+            "samples": 4878,
+            "exact_matches": 4341,
+            "edit_distance": 818,
+            "reference_characters": 53652,
+            "em": 0.8899138991389914,
+            "cer": 0.015246402743606948
+          }
+        }
+      }
+    },
+    "hayai": {
+      "counts": {
+        "manifest_records": 5000,
+        "prediction_records": 5000,
+        "missing_predictions": 0,
+        "prediction_error_records": 0,
+        "body_excluded_empty_reference": 122,
+        "normalization_fallback_raw_records": 0,
+        "empty_reference_by_subset": {
+          "real": 0,
+          "realscan": 0,
+          "enhanced": 0,
+          "all": 0
+        }
+      },
+      "metrics": {
+        "v2_2": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1781,
+            "edit_distance": 384,
+            "reference_characters": 23195,
+            "em": 0.8905,
+            "cer": 0.016555292088812245
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1782,
+            "edit_distance": 482,
+            "reference_characters": 22958,
+            "em": 0.891,
+            "cer": 0.02099486017945814
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 729,
+            "edit_distance": 507,
+            "reference_characters": 11432,
+            "em": 0.729,
+            "cer": 0.04434919524142757
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 4292,
+            "edit_distance": 1373,
+            "reference_characters": 57585,
+            "em": 0.8584,
+            "cer": 0.023843014673960234
+          }
+        },
+        "raw": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1082,
+            "edit_distance": 2199,
+            "reference_characters": 24062,
+            "em": 0.541,
+            "cer": 0.09138891197739174
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1137,
+            "edit_distance": 2281,
+            "reference_characters": 23860,
+            "em": 0.5685,
+            "cer": 0.09559932942162615
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 506,
+            "edit_distance": 1380,
+            "reference_characters": 11870,
+            "em": 0.506,
+            "cer": 0.11625947767481044
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 2725,
+            "edit_distance": 5860,
+            "reference_characters": 59792,
+            "em": 0.545,
+            "cer": 0.09800642226384801
+          }
+        },
+        "body": {
+          "real": {
+            "samples": 1957,
+            "exact_matches": 1838,
+            "edit_distance": 186,
+            "reference_characters": 21632,
+            "em": 0.9391926417986715,
+            "cer": 0.00859837278106509
+          },
+          "realscan": {
+            "samples": 1947,
+            "exact_matches": 1836,
+            "edit_distance": 164,
+            "reference_characters": 21415,
+            "em": 0.9429892141756548,
+            "cer": 0.007658183516226944
+          },
+          "enhanced": {
+            "samples": 974,
+            "exact_matches": 826,
+            "edit_distance": 257,
+            "reference_characters": 10605,
+            "em": 0.8480492813141683,
+            "cer": 0.024233851956624235
+          },
+          "all": {
+            "samples": 4878,
+            "exact_matches": 4500,
+            "edit_distance": 607,
+            "reference_characters": 53652,
+            "em": 0.922509225092251,
+            "cer": 0.011313650935659435
+          }
+        }
+      }
+    },
+    "paddle": {
+      "counts": {
+        "manifest_records": 5000,
+        "prediction_records": 5000,
+        "missing_predictions": 0,
+        "prediction_error_records": 0,
+        "body_excluded_empty_reference": 122,
+        "normalization_fallback_raw_records": 0,
+        "empty_reference_by_subset": {
+          "real": 0,
+          "realscan": 0,
+          "enhanced": 0,
+          "all": 0
+        }
+      },
+      "metrics": {
+        "v2_2": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1829,
+            "edit_distance": 287,
+            "reference_characters": 23195,
+            "em": 0.9145,
+            "cer": 0.012373356326794567
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1787,
+            "edit_distance": 352,
+            "reference_characters": 22958,
+            "em": 0.8935,
+            "cer": 0.01533234602317275
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 755,
+            "edit_distance": 450,
+            "reference_characters": 11432,
+            "em": 0.755,
+            "cer": 0.03936319104268719
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 4371,
+            "edit_distance": 1089,
+            "reference_characters": 57585,
+            "em": 0.8742,
+            "cer": 0.018911174785100286
+          }
+        },
+        "raw": {
+          "real": {
+            "samples": 2000,
+            "exact_matches": 1189,
+            "edit_distance": 2232,
+            "reference_characters": 24062,
+            "em": 0.5945,
+            "cer": 0.09276036904662954
+          },
+          "realscan": {
+            "samples": 2000,
+            "exact_matches": 1300,
+            "edit_distance": 1947,
+            "reference_characters": 23860,
+            "em": 0.65,
+            "cer": 0.08160100586756078
+          },
+          "enhanced": {
+            "samples": 1000,
+            "exact_matches": 446,
+            "edit_distance": 1559,
+            "reference_characters": 11870,
+            "em": 0.446,
+            "cer": 0.13133951137320976
+          },
+          "all": {
+            "samples": 5000,
+            "exact_matches": 2935,
+            "edit_distance": 5738,
+            "reference_characters": 59792,
+            "em": 0.587,
+            "cer": 0.09596601552047096
+          }
+        },
+        "body": {
+          "real": {
+            "samples": 1957,
+            "exact_matches": 1887,
+            "edit_distance": 99,
+            "reference_characters": 21632,
+            "em": 0.9642309657639244,
+            "cer": 0.00457655325443787
+          },
+          "realscan": {
+            "samples": 1947,
+            "exact_matches": 1845,
+            "edit_distance": 142,
+            "reference_characters": 21415,
+            "em": 0.9476117103235747,
+            "cer": 0.006630866215269671
+          },
+          "enhanced": {
+            "samples": 974,
+            "exact_matches": 838,
+            "edit_distance": 212,
+            "reference_characters": 10605,
+            "em": 0.8603696098562629,
+            "cer": 0.01999057048561999
+          },
+          "all": {
+            "samples": 4878,
+            "exact_matches": 4570,
+            "edit_distance": 453,
+            "reference_characters": 53652,
+            "em": 0.9368593685936859,
+            "cer": 0.008443301274882577
+          }
+        }
+      }
+    }
+  }
+}

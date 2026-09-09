@@ -1,0 +1,70 @@
+version: 4
+presets:
+  manga_nfkc_v1:
+    description: Restricted manga-symbol normalization layered on Unicode NFKC.
+    base: NFKC
+    wave_canonical: "〜"
+    wave_display_preserve: ["～", "〜", "〰", "∼"]
+    prolonged_halfwidth: "ｰ"
+    prolonged_canonical: "ー"
+    remove_variation_selectors: true
+  manga_semantic_visual_v2:
+    description: >-
+      V2.2 evaluation aliases preserve kana script and distinguish prolonged
+      marks, dashes, minus and box drawing. Run collapse is implemented by
+      the translation evaluation module. Training presets are not changed.
+    base: NFC
+    validation_normalization: NFKC
+    remove_variation_selectors: false
+    fold_fullwidth_ascii: true
+    fold_halfwidth_katakana: true
+    fold_fullwidth_yen: true
+    character_aliases:
+      "～": "〜"
+      "~": "〜"
+      "·": "・"
+      "◯": "○"
+      "〝": '"'
+      "〞": '"'
+      "〟": '"'
+      "“": '"'
+      "”": '"'
+      "‘": "'"
+      "’": "'"
+      "︱": "—"
+      "﹘": "—"
+      "‐": "-"
+      "‑": "-"
+      "﹣": "-"
+      "︲": "–"
+      "ｰ": "ー"
+      "〰": "〜"
+      "∼": "〜"
+    compatibility_aliases:
+      "‥": "・・"
+      "″": "′′"
+      "‼": "!!"
+      "⁈": "?!"
+      "⁉": "!?"
+      "℃": "°C"
+      "Ⅰ": "I"
+      "Ⅱ": "II"
+      "Ⅲ": "III"
+      "Ⅳ": "IV"
+      "Ⅴ": "V"
+      "Ⅵ": "VI"
+      "Ⅶ": "VII"
+      "Ⅷ": "VIII"
+      "Ⅸ": "IX"
+      "Ⅹ": "X"
+      "㈱": "(株)"
+      "㎏": "kg"
+      "㎜": "mm"
+      "㎝": "cm"
+      "㎞": "km"
+      "㏄": "cc"
+      "…": "・・・"
+      "⋯": "・・・"
+    ellipsis_canonical: "・"
+    fold_ascii_period_runs: false
+    fold_fullwidth_period_runs: false
