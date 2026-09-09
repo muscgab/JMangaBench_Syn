@@ -1,4 +1,4 @@
-# JmangaBench-Syn
+# JMangaBench_Syn
 
 5,000 synthetic Japanese manga text crops for OCR evaluation.  
 用于 OCR 评测的 5,000 张日语漫画合成文字图片。
@@ -20,7 +20,7 @@ Three examples per subset, spanning balloons and text over artwork. These illust
 | ![real 3](examples/real_3.png) | ![realscan 3](examples/realscan_3.png) | ![enhanced 3](examples/enhanced_3.png) |
 
 
-JmangaBench-Syn is a synthetic extension of [JMangaBench-Mixed](https://github.com/muscgab/JMangaBench_Mixed), designed to strengthen evaluation against data contamination. It reduces reliance on real manga images that may already appear in OCR training data. Synthetic images reduce this risk but do not guarantee that the source text or visual assets are unseen by a model.
+JMangaBench_Syn is a synthetic extension of [JMangaBench-Mixed](https://github.com/muscgab/JMangaBench_Mixed), designed to strengthen evaluation against data contamination. It reduces reliance on real manga images that may already appear in OCR training data. Synthetic images reduce this risk but do not guarantee that the source text or visual assets are unseen by a model.
 
 | Subset | Images | Description |
 |---|---:|---|
@@ -121,7 +121,7 @@ On success, `error` may be omitted, `null`, or an empty string.
 | ![real 3](examples/real_3.png) | ![realscan 3](examples/realscan_3.png) | ![enhanced 3](examples/enhanced_3.png) |
 
 
-JmangaBench-Syn 是 [JMangaBench-Mixed](https://github.com/muscgab/JMangaBench_Mixed) 的合成数据加强版，旨在增强评测对数据污染的抵抗力：减少对可能已进入 OCR 训练集的真实漫画图片的依赖。合成图片可以降低这类风险，但不能保证模型从未接触其文本来源或视觉资产。
+JMangaBench_Syn 是 [JMangaBench-Mixed](https://github.com/muscgab/JMangaBench_Mixed) 的合成数据加强版，旨在增强评测对数据污染的抵抗力：减少对可能已进入 OCR 训练集的真实漫画图片的依赖。合成图片可以降低这类风险，但不能保证模型从未接触其文本来源或视觉资产。
 
 | 子集 | 图片数 | 说明 |
 |---|---:|---|

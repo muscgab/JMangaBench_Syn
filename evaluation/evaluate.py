@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Strict, portable scorer for JmangaBench-Syn R33 JSONL submissions."""
+"""Strict, portable scorer for JMangaBench_Syn R33 JSONL submissions."""
 
 from __future__ import annotations
 
