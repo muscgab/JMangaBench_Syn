@@ -1,8 +1,8 @@
 {
-  "README.md": "3ac63d22d58e492c9c97578b9efcc8c4e20133d1670238d4f886a00c0b9e1fdb",
+  "README.md": "dc1514e52572a2b08f02d2d35ba3c89f8dd509e8f5adc43528b60f07c0786f6f",
   "NORMALIZATION_V2_2.md": "42506ee494f8b09b0f8ad05880334be0ab5abad6ec53fdec64a5bc9b99f78555",
   ".gitignore": "36d3c5d262c79ceb5e14dc357ff55bd719da8c2c76986d7d5aded062decdc873",
-  "download_benchmark.py": "9aa283fcf7e329de1061b997a3b7f27dd42198f9a68925ee8429c77920a3532e",
+  "download_benchmark.py": "977e17519f975390dcb087b659eb976618e3bb2788b03f8365e0f21ae711d532",
   "adapters/paddle_sdpa_boundary_fix_repro.json": "519e330a21f92e9c9d60990eaafe86046ded152915c450f0fbeb0df319e5eee3",
   "adapters/paddle_sdpa_boundary_fix.patch": "693b309812deef2f3b41cb98ea935a15f80a5cf6939c7c92eaefe0f5aad6b29c",
   "examples/enhanced_2.png": "026e82b9fb319d1c4ee081050718ab474bfbee99d8691c46afde026404c78250",
@@ -23,5 +23,6 @@
   "evaluation/test_translation_punctuation_v2_2.py": "70bca51a71c5c668738d9c9c6ea018ab8d809bcc57e191e5afb82fd39f0def21",
   "evaluation/normalization_presets_semantic_visual_v2.yaml": "e6aa5038b0222772a980815b7d4842e59186bf927e757f088815d593693d1802",
   "reports/reference_metrics.json": "aa0c56401d15ba7381c8d415ba7be72dab717232f5559c4042b5bd10d06764b6",
-  "evaluation/tests/test_evaluate.py": "b90073588b43b3a4951b70e868fa441cea6a8c31aa4bdf06726318a910466b1b"
+  "evaluation/tests/test_evaluate.py": "b90073588b43b3a4951b70e868fa441cea6a8c31aa4bdf06726318a910466b1b",
+  "DATA.json": "12c3d244c83bccb999f9b0a492f9ae3096278db169a32c78a5bdd65d339dd366"
 }

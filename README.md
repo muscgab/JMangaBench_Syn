@@ -39,7 +39,7 @@ Including small buckets, the maximum is **40.22% for the full 5,000-image set**,
 
 The text corpus comes from the maintainer's private manga collection, MangaOCR pseudo-labeling, and Terra/Luna cleaning. Each reference contains the rendered body text; furigana (ruby) is excluded.
 
-The code package does not include the original manga or the full source corpus. Images are hosted in a [private ModelScope dataset](https://modelscope.cn/datasets/muscgab/JmangaBench-Syn-R33-5000-20260909); access is required. This package grants no additional rights to redistribute source assets.
+The code package does not include the original manga or the full source corpus. All 5,000 images and evaluation annotations are publicly available in [GitHub Releases](https://github.com/muscgab/JMangaBench_Syn/releases/tag/data-v1). No account or token is required. This package grants no additional rights to redistribute source assets.
 
 ### Evaluation
 
@@ -83,10 +83,9 @@ Paddle results include a [batch attention correction](adapters/paddle_sdpa_bound
 
 ### Quick start
 
-Set `MODELSCOPE_API_TOKEN` for an account with dataset access.
+Download and verify the public data using Python 3.9 or newer (standard library only).
 
 ```bash
-python3 -m pip install modelscope-hub==0.2.0
 python3 download_benchmark.py --output /path/to/JmangaBench_Syn
 
 python3 -m pip install -r evaluation/requirements.txt
@@ -140,7 +139,7 @@ JMangaBench_Syn 是 [JMangaBench-Mixed](https://github.com/muscgab/JMangaBench_M
 
 文本语料来自维护者的私有漫画、MangaOCR 伪标注，以及 Terra/Luna 清洗。每张图片的参考答案为实际绘制的正文，不包含注音（ruby）。
 
-代码包不包含原始漫画或完整源语料。图片保存在 [ModelScope 私有数据集](https://modelscope.cn/datasets/muscgab/JmangaBench-Syn-R33-5000-20260909)，需要访问权限。本项目不额外授予源资产的再分发权利。
+代码包不包含原始漫画或完整源语料。全部 5,000 张图片和评测标注已在 [GitHub Releases](https://github.com/muscgab/JMangaBench_Syn/releases/tag/data-v1) 公开，无需账号或 token。本项目不额外授予源资产的再分发权利。
 
 ### 评测
 
@@ -184,10 +183,9 @@ Paddle 结果包含[批处理注意力修复](adapters/paddle_sdpa_boundary_fix.
 
 ### 快速开始
 
-将有数据集访问权限的账号 token 设置为环境变量 `MODELSCOPE_API_TOKEN`。
+使用 Python 3.9 或更新版本下载并校验公开数据（下载器仅使用标准库）。
 
 ```bash
-python3 -m pip install modelscope-hub==0.2.0
 python3 download_benchmark.py --output /path/to/JmangaBench_Syn
 
 python3 -m pip install -r evaluation/requirements.txt

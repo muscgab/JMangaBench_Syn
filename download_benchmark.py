@@ -1,98 +1,55 @@
-"""Download the frozen private benchmark directly from ModelScope on this machine."""
-from __future__ import annotations
-
-import argparse
-from collections import Counter
-import hashlib
-import json
-import os
+"""Download the public JMangaBench_Syn benchmark. No account required."""
+import argparse, hashlib, json, shutil, tarfile, urllib.request
 from pathlib import Path, PurePosixPath
-import shutil
-import tarfile
+from collections import Counter
 
-REPOSITORY = 'muscgab/JmangaBench-Syn-R33-5000-20260909'
-MANIFEST_SHA256 = 'bd0dde4fc95891d6aa198afbb9f334403bcdfc7fbf6f960ca763a0ca429a343e'
-ARCHIVES = {
-    'base4000': '50453b794c41fba7e2ae8042f69f4f40f348900e40abcb0143c152c8c0cff96d',
-    'enhanced1000': '4bf0d9c6d74b402bdb874fc4b64387a214b2194fc6130f320d69de77d71aae79',
-}
-
-
-def extract_part(archive: Path, output: Path, name: str) -> list[dict]:
-    records = None
-    with tarfile.open(archive, 'r:gz') as tar:
-        for member in tar:
-            path = PurePosixPath(member.name)
-            if path.is_absolute() or '..' in path.parts:
-                raise ValueError('Unsafe archive path')
-            if member.isdir():
-                continue
-            if not member.isfile() or len(path.parts) < 2:
-                raise ValueError('Unexpected archive entry type or layout')
-            relative = PurePosixPath(*path.parts[1:])
-            stream = tar.extractfile(member)
-            if stream is None:
-                raise ValueError('Unreadable archive member')
-            if str(relative) == 'manifest.jsonl':
-                raw = stream.read()
-                records = [json.loads(line) for line in raw.splitlines() if line.strip()]
-                target = output / 'manifests' / (name + '.jsonl')
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes(raw)
-                continue
-            if relative.parts[0] == 'images':
-                target = output.joinpath(*relative.parts)
-            else:
-                target = output / 'reports' / name / str(relative)
-            target.parent.mkdir(parents=True, exist_ok=True)
-            with target.open('xb') as destination:
-                shutil.copyfileobj(stream, destination)
-    if records is None:
-        raise ValueError('Archive did not contain a manifest')
-    return records
-
+URL = "https://github.com/muscgab/JMangaBench_Syn/releases/download/data-v1/JMangaBench_Syn_5000.tar.gz"
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--output', type=Path, required=True)
-    args = p.parse_args()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--archive", type=Path, help="Use an already downloaded release archive")
+    args = parser.parse_args()
     output = args.output.resolve()
     if output.exists() and any(output.iterdir()):
-        p.error('Output directory must be empty; an incomplete download is preserved for inspection')
+        parser.error("Output directory must be empty")
+    meta = json.loads(Path(__file__).with_name("DATA.json").read_text())
     output.mkdir(parents=True, exist_ok=True)
-    from modelscope_hub import HubApi
-    api = HubApi(token=os.environ.get('MODELSCOPE_API_TOKEN'))
-    records = []
-    for name, expected in ARCHIVES.items():
-        path = api.download_file(REPOSITORY, 'dataset', 'data/' + name + '.tar.gz',
-                                 local_dir=output / '.downloads', expected_sha256=expected)
-        actual = hashlib.sha256(path.read_bytes()).hexdigest()
-        if actual != expected:
-            raise ValueError('Archive checksum mismatch: ' + name)
-        records.extend(extract_part(path, output, name))
-    if len(records) != 5000 or len({r['id'] for r in records}) != 5000:
-        raise ValueError('Expected 5000 unique sample IDs')
-    if Counter(r['subset'] for r in records) != {'real': 2000, 'realscan': 2000, 'enhanced': 1000}:
-        raise ValueError('Unexpected subset counts')
-    seen = set()
-    for row in records:
-        image = output / row['image']
-        if not image.resolve().is_relative_to(output):
-            raise ValueError('Unsafe manifest image path')
+    archive = args.archive
+    if archive is None:
+        archive = output / "download.tar.gz"
+        request = urllib.request.Request(URL, headers={"User-Agent": "JMangaBench_Syn downloader"})
+        with urllib.request.urlopen(request, timeout=120) as src, archive.open("wb") as dst:
+            shutil.copyfileobj(src, dst)
+    if hashlib.sha256(archive.read_bytes()).hexdigest() != meta["archive_sha256"]:
+        raise ValueError("Archive checksum mismatch")
+    with tarfile.open(archive) as tar:
+        for member in tar:
+            path = PurePosixPath(member.name)
+            if path.is_absolute() or ".." in path.parts or not member.isfile():
+                raise ValueError("Unsafe archive member")
+            if str(path) != "manifest.jsonl" and not (len(path.parts) == 2 and path.parts[0] in meta["subsets"] and path.suffix == ".png"):
+                raise ValueError("Unexpected archive member")
+            target = output.joinpath(*path.parts)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with tar.extractfile(member) as src, target.open("xb") as dst:
+                shutil.copyfileobj(src, dst)
+    raw = (output / "manifest.jsonl").read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == meta["manifest_sha256"]
+    rows = [json.loads(line) for line in raw.splitlines()]
+    assert len(rows) == len({r["id"] for r in rows}) == 5000
+    assert Counter(r["subset"] for r in rows) == meta["subsets"]
+    hashes = set()
+    for row in rows:
+        image = output / row["image"]
+        assert image.resolve().is_relative_to(output)
         digest = hashlib.sha256(image.read_bytes()).hexdigest()
-        if digest != image.stem or digest in seen:
-            raise ValueError('Image checksum mismatch or duplicate PNG bytes')
-        seen.add(digest)
-    manifest = ''.join(json.dumps(row, ensure_ascii=False) + '\n' for row in records)
-    if hashlib.sha256(manifest.encode()).hexdigest() != MANIFEST_SHA256:
-        raise ValueError('Frozen manifest checksum mismatch')
-    (output / 'manifest.jsonl').write_text(manifest, encoding='utf-8')
-    receipt = {'repo': REPOSITORY, 'images': 5000, 'unique_png_sha256': len(seen),
-               'archive_sha256': ARCHIVES,
-               'manifest_sha256': hashlib.sha256(manifest.encode()).hexdigest()}
-    (output / 'download_receipt.json').write_text(json.dumps(receipt, indent=2))
-    print(json.dumps(receipt, indent=2))
+        assert digest == image.stem and digest not in hashes
+        hashes.add(digest)
+    (output / "download_receipt.json").write_text(json.dumps(meta, indent=2))
+    if args.archive is None:
+        archive.unlink()
+    print("Verified 5,000 images and annotations:", output)
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

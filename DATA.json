@@ -1,0 +1,10 @@
+{
+  "images": 5000,
+  "subsets": {
+    "real": 2000,
+    "realscan": 2000,
+    "enhanced": 1000
+  },
+  "archive_sha256": "772e691930f9c96d19a26298d4c3cf1002d09cf73adcce1002d09e9d52324bd0",
+  "manifest_sha256": "3f7c384e2cbedc121abd711ff7c202f8a0ffa519718e5bb8e3908fa9530fbe60"
+}
